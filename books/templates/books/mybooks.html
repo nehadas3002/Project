@@ -1,0 +1,47 @@
+{% extends "books/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<h1>Books you are reading ({{count2}}):</h1>
+
+<div class="all-books">
+    
+    {% for book in readingbooks %}
+    
+    <div class="card" style="width: 18rem;">
+        <img class="zoom" src="{{book.book.cover}}" class="card-img-top" alt="..." style="height: 450px">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'booklist' book.book.id %}">{{book.book.title}}</a></h5>
+          <p class="card-text">{{book.book.author}}</p>
+        </div>
+      </div>
+    
+    {% endfor %}
+    
+</div>
+
+<h1>Books you have read ({{count}}):</h1>
+
+<div class="all-books">
+    
+    {% for book in readbooks %}
+    
+    <div class="card" style="width: 18rem;">
+        <img class="zoom" src="{{book.book.cover}}" class="card-img-top" alt="..." style="height: 450px">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'booklist' book.book.id %}">{{book.book.title}}</a></h5>
+          <p class="card-text">{{book.book.author}}</p>
+        </div>
+      </div>
+    
+    {% endfor %}
+    
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'books/main.js' %}"></script>
+{% endblock %}

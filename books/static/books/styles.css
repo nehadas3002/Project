@@ -1,0 +1,188 @@
+#title {
+    margin: 10px; 
+
+}
+
+#title-ass, #author-ass, #posted-by, #welcome-message {
+    text-align: center; 
+    
+}
+
+#welcome-message {
+    font-size:70px;
+}
+
+
+.msg {
+    border-radius: 15px;
+}
+#title-ass {
+    text-decoration: underline; 
+}
+
+#add-read-button, #add-reading-button {
+    background-color: green;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+#unadd-read-button, #unadd-reading-button {
+    background-color: red;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.my-btn {
+    background-color: inherit !important;
+    border: 0 !important; 
+}
+
+
+#rating-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 300px;
+    grid-template-areas: ". data .";
+    justify-content: center;
+    align-self: center;
+}
+
+#data {
+    grid-area: data;
+    text-align: center;
+    justify-content: center;
+    align-self: center; 
+
+}
+
+
+#view-rates {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+}
+
+
+
+
+.watch-div {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+#cover-container, #alert, #rating-data {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.checked {
+    color: orange;
+}
+
+#rating {
+    display: flex; 
+    justify-content: center;
+    align-self: center;
+    padding-top: 10px; 
+}
+
+.body {
+    margin: 10px;
+    padding: 0px; 
+    
+}
+
+#add-title {
+    padding-left: 20px;
+    display: grid;
+    grid-template-columns: 220px 20px;
+    grid-template-rows: 100px;
+    grid-template-areas: "add-new-book drop-down";
+}
+
+#add-new-book {
+    grid-area: add-new-book;
+    justify-self: left;
+    align-self: center;
+}
+
+#drop-down {
+    grid-area: drop-down; 
+    justify-self: left;
+    align-self: center;
+}
+
+#drop-down-2 {
+    margin-left: 10px;
+    margin-top: 8px; 
+}
+
+
+#add-button {
+    margin-left: 12px; 
+}
+
+#books {
+    padding-left: 15px; 
+    padding-top: 20px; 
+}
+
+.all-books {
+    padding: 15px; 
+    display: flex; 
+    flex-wrap: wrap; 
+}
+
+#adding-div {
+    padding: 10px; 
+}
+
+.card {
+    margin-right: 20px; 
+    margin-top: 20px; 
+}
+
+.rainbowText-move {
+    font-family:arial black;
+    font-size:70px;
+    background-image: 
+      linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+    animation: move 35s linear infinite;
+  }
+  
+  @keyframes move {
+    to {
+      background-position: 4500vh;
+    }
+  }
+
+.rainbowText {
+    font-family:arial black;
+    font-size:70px;
+    background-image: 
+      linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-position: initial;
+}
+
+.grow:hover {
+    font-size: 40px;
+    transition: all .2s ease-in-out; 
+}
+
+.zoom:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transition: all .2s ease-in-out
+    
+}
+
+.grow-2:hover {
+    font-size: 25px;
+    transition: all .2s ease-in-out; 
+}

@@ -1,0 +1,185 @@
+{% extends "books/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+{% if exists %}
+
+<div id="alert">
+    <div class="alert alert-success col-sm-12 col-md-4" role="alert">
+        {{ message2 }} 
+    </div>
+</div>
+
+{% endif %}
+
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div id="whatever">
+            <h1 style="font-style: italic" id="title-ass">{{selected_book.title}}</h1>
+            <h2 style="font-style: italic" id="author-ass">Author: {{selected_book.author}}</h1>
+            <h3 style="font-style: italic" id="posted-by">Posted by: {{selected_book.user.username}}</h3>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div id="cover-container" class="offset-lg-2 col-lg-4">
+            <img src="{{selected_book.cover}}" style="height: 600px; width: 393px;">
+        </div>
+        <div style="margin-left: 10px;" class="col-lg-4">
+            <div class="watch-div">
+                {% if not is_read %}
+                <form action="{% url 'booklist' selected_book.id %}" method="POST">
+                    {% csrf_token %}
+                    <button id="add-read-button" type="submit" class="btn btn-success" name="read">Add to Read</button>
+                    </form>
+                
+                {% else %}
+                <form action="{% url 'booklist' selected_book.id %}" method="POST">
+                    {% csrf_token %}
+                    <button id="unadd-read-button" type="submit" class="btn btn-success" name="un-read">Remove from Read</button>
+                    </form>
+                
+                {% endif %}
+                
+                {% if not is_reading %}
+                
+                
+                <form action="{% url 'booklist' selected_book.id %}" method="POST">
+                    {% csrf_token %}
+                    <button id="add-reading-button" type="submit" class="btn btn-success" name="reading">Add to Reading</button>
+                    </form>
+                
+                {% else %}
+                <form action="{% url 'booklist' selected_book.id %}" method="POST">
+                    {% csrf_token %}
+                    <button id="unadd-reading-button" type="submit" class="btn btn-success" name="un-reading">Remove from Reading</button>
+                    </form>
+                
+                {% endif %}
+            
+            </div>
+            <!--insert here-->
+            {% if exists %}
+
+            {% if personal_rate == 1%}
+            <div id="rating">
+                <form class="rate-form" action="{% url 'booklist' selected_book.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" id="first" class="fa fa-star fa-2x my-btn checked" name="first"></button>
+                    <button type="submit" id="second" class="fa fa-star fa-2x my-btn" name="second"></button>
+                    <button type="submit" id="third" class="fa fa-star fa-2x my-btn" name="third"></button>
+                    <button type="submit" id="fourth" class="fa fa-star fa-2x my-btn" name="fourth"></button>
+                    <button type="submit" id="fifth" class="fa fa-star fa-2x my-btn" name="fifth"></button>
+                </form>
+            </div>
+            
+            {% elif personal_rate == 2%}
+            <div id="rating">
+                <form class="rate-form" action="{% url 'booklist' selected_book.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" id="first" class="fa fa-star fa-2x my-btn checked" name="first"></button>
+                    <button type="submit" id="second" class="fa fa-star fa-2x my-btn checked" name="second"></button>
+                    <button type="submit" id="third" class="fa fa-star fa-2x my-btn" name="third"></button>
+                    <button type="submit" id="fourth" class="fa fa-star fa-2x my-btn" name="fourth"></button>
+                    <button type="submit" id="fifth" class="fa fa-star fa-2x my-btn" name="fifth"></button>
+                </form>
+            </div>
+            {% elif personal_rate == 3%}
+            <div id="rating">
+                <form class="rate-form" action="{% url 'booklist' selected_book.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" id="first" class="fa fa-star fa-2x my-btn checked" name="first"></button>
+                    <button type="submit" id="second" class="fa fa-star fa-2x my-btn checked" name="second"></button>
+                    <button type="submit" id="third" class="fa fa-star fa-2x my-btn checked" name="third"></button>
+                    <button type="submit" id="fourth" class="fa fa-star fa-2x my-btn" name="fourth"></button>
+                    <button type="submit" id="fifth" class="fa fa-star fa-2x my-btn" name="fifth"></button>
+                </form>
+            </div>
+            {% elif personal_rate == 4%}
+            <div id="rating">
+                <form class="rate-form" action="{% url 'booklist' selected_book.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" id="first" class="fa fa-star fa-2x my-btn checked" name="first"></button>
+                    <button type="submit" id="second" class="fa fa-star fa-2x my-btn checked" name="second"></button>
+                    <button type="submit" id="third" class="fa fa-star fa-2x my-btn checked" name="third"></button>
+                    <button type="submit" id="fourth" class="fa fa-star fa-2x my-btn checked" name="fourth"></button>
+                    <button type="submit" id="fifth" class="fa fa-star fa-2x my-btn" name="fifth"></button>
+                </form>
+            </div>
+            {% elif personal_rate == 5%}
+            <div id="rating">
+                <form class="rate-form" action="{% url 'booklist' selected_book.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" id="first" class="fa fa-star fa-2x my-btn checked" name="first"></button>
+                    <button type="submit" id="second" class="fa fa-star fa-2x my-btn checked" name="second"></button>
+                    <button type="submit" id="third" class="fa fa-star fa-2x my-btn checked" name="third"></button>
+                    <button type="submit" id="fourth" class="fa fa-star fa-2x my-btn checked" name="fourth"></button>
+                    <button type="submit" id="fifth" class="fa fa-star fa-2x my-btn checked" name="fifth"></button>
+                </form>
+            </div>
+            
+            
+            {% endif %}
+            
+            {% else %}
+            <div id="rating">
+                <form class="rate-form" action="{% url 'booklist' selected_book.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" id="first" class="fa fa-star fa-2x my-btn" name="first"></button>
+                    <button type="submit" id="second" class="fa fa-star fa-2x my-btn" name="second"></button>
+                    <button type="submit" id="third" class="fa fa-star fa-2x my-btn" name="third"></button>
+                    <button type="submit" id="fourth" class="fa fa-star fa-2x my-btn" name="fourth"></button>
+                    <button type="submit" id="fifth" class="fa fa-star fa-2x my-btn" name="fifth"></button>
+                </form>
+            </div>
+            {% endif %}
+
+            <!--Insert Here-->
+            <br>
+
+            <div id="view-rates"> 
+                <h3 id="view-title">View Ratings</h3>
+                <i id="drop-down-2" class="bi bi-arrow-down-square"></i>
+            </div>
+            
+            <div id="rating-info">
+                <div id="data">
+                    <h4>5 stars: {{fives}} ratings</h4>
+                    <h4>4 stars: {{fours}} ratings</h4>
+                    <h4>3 stars: {{threes}} ratings</h4>
+                    <h4>2 stars: {{twos}} ratings</h4>
+                    <h4>1 stars: {{ones}} ratings</h4>
+                </div>
+                
+            </div>
+
+            <br>
+
+            <div style="text-align: center;">
+                <p>{{ selected_book.synopsis }}</p>
+            </div>
+
+
+        </div>
+    </div>
+    
+</div>
+
+<br>
+
+<div style="text-align: center" class="col-sm-4 offset-sm-4 justify-content-center">
+    
+    <h4>
+        <a style="font-size: x-large;" href="{% url 'chat' selected_book.id %}">Book Chat</a>
+    </h4>
+</div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'books/main.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "books/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<h4>Showing results for "{{ search }}" </h1>
+
+
+<div class="all-books">
+{% for object in objects %}
+
+<div class="card" style="width: 18rem;">
+    <img src="{{object.cover}}" class="card-img-top" alt="..." style="height: 450px">
+    <div class="card-body">
+      <h5 class="card-title"><a href="{% url 'booklist' object.id %}">{{object.title}}</a></h5>
+      <p class="card-text">{{object.author}}</p>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+
+{% endblock %}
